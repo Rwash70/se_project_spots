@@ -1,0 +1,113 @@
+.profile {
+  display: flex;
+  padding: 34px 0 20px;
+  border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
+}
+
+.profile__avatar {
+  height: 190px;
+  width: 190px;
+  margin-right: 20px;
+}
+
+.profile__column {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__name {
+  margin: 0 0 12px;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 420px;
+}
+
+.profile__description {
+  margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: rgba(33, 33, 33, 0.7);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 420px;
+  margin-bottom: 18px;
+}
+
+.profile__edit-btn {
+  display: flex;
+  margin-top: auto;
+  border: none;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  gap: 8px;
+  color: rgba(33, 33, 33, 0.7);
+  background-color: transparent;
+  margin-right: auto;
+}
+
+.profile__add-btn {
+  display: flex;
+  margin-left: auto;
+  margin-top: auto;
+  width: 157px;
+  height: 52px;
+  border-radius: 8px;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  justify-content: center;
+  background-color: #212121;
+  align-items: center;
+  color: #ffff;
+  gap: 8px;
+  transition: background-color 0.3 ease-in-out;
+}
+
+@media screen and (max-width: 627px) {
+  .profile {
+    flex-direction: column;
+    max-width: 288px;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .profile__avatar {
+    margin: 0 0 12px;
+    height: 80px;
+    width: 80px;
+  }
+
+  .profile__name {
+    font-size: 20px;
+    margin: 0 0 6px;
+    max-width: 288px;
+  }
+
+  .profile__description {
+    margin: 0 0 32px;
+    max-width: 288px;
+  }
+
+  .profile__column {
+    margin: 0 0 20px;
+    align-items: center;
+  }
+
+  .profile__edit-btn {
+    margin-right: 0;
+  }
+
+  .profile__add-btn {
+    margin: 0;
+    width: 100%;
+  }
+}
