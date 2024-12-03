@@ -8,6 +8,8 @@
   height: 190px;
   width: 190px;
   margin-right: 20px;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 .profile__column {
@@ -50,6 +52,11 @@
   color: rgba(33, 33, 33, 0.7);
   background-color: transparent;
   margin-right: auto;
+  cursor: pointer;
+}
+
+.profile__edit-btn:hover {
+  color: #212121;
 }
 
 .profile__add-btn {
@@ -69,6 +76,10 @@
   color: #ffff;
   gap: 8px;
   transition: background-color 0.3 ease-in-out;
+}
+
+.profile__add-btn:hover {
+  background-color: #fcf5e5;
 }
 
 @media screen and (max-width: 627px) {
