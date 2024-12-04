@@ -17,3 +17,5 @@ Spots is an innovative platform designed for sharing images across social platfo
 This webpage is deployed to GitHub Pages.
 
 . Deployment Link: https://rwash70.github.io/se_project_spots/
+
+. Project Video: https://drive.google.com/file/d/1icEmo4ZcWWHJc6R7ANF7BhB1wPsHwOox/view?usp=sharing

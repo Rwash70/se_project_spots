@@ -56,7 +56,7 @@
 }
 
 .profile__edit-btn:hover {
-  color: #212121;
+  color: rgba(33, 33, 33, 1);
 }
 
 .profile__add-btn {
@@ -76,13 +76,14 @@
   color: #ffff;
   gap: 8px;
   transition: background-color 0.3 ease-in-out;
+  cursor: pointer;
 }
 
 .profile__add-btn:hover {
-  background-color: #fcf5e5;
+  opacity: 0.8;
 }
 
-@media screen and (max-width: 627px) {
+@media screen and (max-width: 790px) {
   .profile {
     flex-direction: column;
     max-width: 288px;
