@@ -38,21 +38,22 @@
             <template id="card-template">
               <li class="card">
                 <div class="card__image-container">
-                <img class="card__image" src="" alt="" />
-                <button
-                  type="button"
-                  class="card__delete-btn"
-                  aria-label="Delete card"
-                >
-                  <img src="./images/trashcan.svg" alt="Trashcan icon" />
-                </button>
-                <div class="card__container">
-                  <h2 class="card__title"></h2>
+                  <img class="card__image" src="" alt="" />
                   <button
-                    aria-label="Like card"
-                    class="card__like-button"
                     type="button"
-                  ></button>
+                    class="card__delete-btn"
+                    aria-label="Delete card"
+                  >
+                    <img src="./images/trashcan.svg" alt="Trashcan icon" />
+                  </button>
+                  <div class="card__container">
+                    <h2 class="card__title"></h2>
+                    <button
+                      aria-label="Like card"
+                      class="card__like-button"
+                      type="button"
+                    ></button>
+                  </div>
                 </div>
               </li>
             </template>
@@ -135,18 +136,15 @@
     </div>
 
     <div class="modal" id="preview-modal">
-    <div class="modal__content modal__content_type_preview">
-      <button 
-      aria-label="Close modal" 
-      class="modal__close modal__close_type_preview"
-      type="button"
-      ></button>
-    <img class="modal__image" 
-    src=""
-    alt=""
-     />
-      <p class="modal__caption"></p>
-    </div>
+      <div class="modal__content modal__content_type_preview">
+        <button
+          aria-label="Close modal"
+          class="modal__close-btn modal__close-btn_type_preview"
+          type="button"
+        ></button>
+        <img class="modal__image" src="" alt="" />
+        <p class="modal__caption"></p>
+      </div>
     </div>
     <script defer src="./scripts/index.js"></script>
   </body>
