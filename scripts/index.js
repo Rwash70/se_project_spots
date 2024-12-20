@@ -102,7 +102,6 @@ function handleEditFormSubmit(evt) {
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
-  evt.target.reset();
   const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
   const cardElement = getCardElement(inputValues);
   cardslist.prepend(cardElement);
@@ -111,6 +110,8 @@ function handleCardFormSubmit(evt) {
   cardLinkInput.value = "";
 
   closeModal(cardModal);
+
+  evt.target.reset();
 }
 
 profileEditButton.addEventListener("click", () => {
