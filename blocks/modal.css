@@ -98,11 +98,15 @@
 }
 
 .modal__title {
-  margin: 0 0 32px;
+  margin: 0;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 32px;
   line-height: 1;
+}
+
+.modal__form {
+  margin-top: 32px;
 }
 
 .modal__label {
@@ -123,7 +127,22 @@
   color: #212121;
 }
 
-.modal__submit-btn {
+.modal__error {
+  color: #ff0000;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
+}
+
+.modal__input_type_error:hover {
+  border: 1px solid rgb(33, 33, 33);
+}
+
+.modal__save-btn {
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-size: 16px;
   width: 156px;
@@ -135,7 +154,13 @@
   cursor: pointer;
 }
 
-.modal__submit-btn:hover {
+.modal__save-btn_disabled {
+  background-color: #808080;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.modal__save-btn:hover {
   opacity: 0.8;
 }
 
