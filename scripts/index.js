@@ -99,6 +99,29 @@ function closeModal(modal) {
   modal.classList.remove("modal_opened");
 }
 
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+  document.addEventListener("keyup", handleEscClose);
+}
+
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
+  document.removeEventListener("keyup", handleEscClose);
+}
+
+function handleEscClose(evt) {
+  if (evt.key === "Escape") {
+    const activeModal = document.querySelector(".modal_opened");
+    closeModal(activeModal);
+  }
+}
+
+document.addEventListener("click", (evt) => {
+  if (evt.target.classList.contains("modal_opened")) {
+    closeModal(evt.target);
+  }
+});
+
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = editModalNameInput.value;
@@ -123,8 +146,9 @@ profileEditButton.addEventListener("click", () => {
     editFormElement,
     [editModalNameInput, editModalDesriptionInput],
     settings
-  ),
-    openModal(editModal);
+  );
+
+  openModal(editModal);
 });
 
 editModalCloseBtn.addEventListener("click", () => {
