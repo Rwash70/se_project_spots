@@ -91,22 +91,22 @@ function getCardElement(data) {
   return cardElement;
 }
 
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-}
-
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
+function handleClickOverlay(evt) {
+  if (evt.target.classList.contains("modal_opened")) {
+    closeModal(evt.target);
+  }
 }
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keyup", handleEscClose);
+  document.addEventListener("click", handleClickOverlay);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keyup", handleEscClose);
+  document.removeEventListener("click", handleClickOverlay);
 }
 
 function handleEscClose(evt) {
@@ -115,12 +115,6 @@ function handleEscClose(evt) {
     closeModal(activeModal);
   }
 }
-
-document.addEventListener("click", (evt) => {
-  if (evt.target.classList.contains("modal_opened")) {
-    closeModal(evt.target);
-  }
-});
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
