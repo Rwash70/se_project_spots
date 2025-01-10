@@ -5,20 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Regina Washington" />
     <meta name="description" content="Spots landing Page" />
-    <meta name="keywords" content="HTML, CSS, Responsive design" />
-    <link rel="stylesheet" href="./pages/index.css" />
+    <!-- <meta name="keywords" content="HTML, CSS, Responsive design" /> -->
+    <!-- <link rel="stylesheet" href="./pages/index.css" /> -->
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <title>Spots</title>
   </head>
   <body>
     <div class="page">
       <header class="header">
-        <img src="./images/logo.svg" alt="Spot logo" class="header__logo" />
+        <img
+          src="<%=require('./images/logo.svg')%>"
+          alt="Spot logo"
+          class="header__logo"
+        />
       </header>
       <main class="content">
         <section class="profile page__section">
           <img
-            src="./images/avatar.jpg"
+            src="<%=require('./images/avatar.jpg')%>"
             alt="Bessie Coleman"
             class="profile__avatar"
           />
@@ -26,11 +30,15 @@
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
             <button type="button" class="profile__edit-btn">
-              <img src="./images/pencil.svg" alt="Pencil icon" />Edit profile
+              <img
+                src="<%=require('./images/pencil.svg')%>"
+                alt="Pencil icon"
+              />Edit profile
             </button>
           </div>
           <button type="button" class="profile__add-btn">
-            <img src="./images/plus.svg" alt="Plus icon" />New Post
+            <img src="<%=require('./images/plus.svg')%>" alt="Plus icon" />New
+            Post
           </button>
         </section>
         <section class="cards page__section">
@@ -38,14 +46,12 @@
             <template id="card-template">
               <li class="card">
                 <div class="card__image-container">
-                  <img class="card__image" src="" alt="" />
+                  <img class="card__image" alt="Card image" />
                   <button
                     type="button"
                     class="card__delete-btn"
                     aria-label="Delete card"
-                  >
-                    <img src="./images/trashcan.svg" alt="Trashcan icon" />
-                  </button>
+                  ></button>
                   <div class="card__container">
                     <h2 class="card__title"></h2>
                     <button
@@ -70,7 +76,7 @@
             type="button"
             class="modal__close-btn"
           >
-            <img src="./images/exit.svg" alt="exit icon" />
+            <img src="<%=require('./images/exit.svg')%>" alt="exit icon" />
           </button>
           <h2 class="modal__title">Edit profile</h2>
           <form class="modal__form" id="edit-profile-form" novalidate>
@@ -113,7 +119,7 @@
     <div class="modal" id="add-card-modal">
       <div class="modal__content">
         <button type="button" class="modal__close-btn">
-          <img src="./images/exit.svg" alt="exit icon" />
+          <img src="<%=require('./images/exit.svg')%>" alt="exit icon" />
         </button>
         <h2 class="modal__title">New post</h2>
         <form class="modal__form" id="add-card-form" novalidate>
@@ -155,11 +161,10 @@
           class="modal__close-btn modal__close-btn_type_preview"
           type="button"
         ></button>
-        <img class="modal__image" src="#" alt="#" />
+        <img class="modal__image" alt="#" />
         <p class="modal__caption"></p>
       </div>
     </div>
-    <script defer src="./scripts/validation.js"></script>
-    <script defer src="./scripts/index.js"></script>
+    <!-- <script type="module" src="./scripts/index.js"></script> -->
   </body>
 </html>
