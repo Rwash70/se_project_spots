@@ -179,6 +179,16 @@
   background-color: #ff0000;
 }
 
+.modal__submit-btn_disabled {
+  background-color: #808080;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.modal__submit-btn:hover {
+  opacity: 0.8;
+}
+
 .modal__cancel-btn {
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-size: 16px;
@@ -191,14 +201,13 @@
   cursor: pointer;
 }
 
-.modal__submit-btn_disabled {
-  background-color: #808080;
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-
-.modal__submit-btn:hover {
-  opacity: 0.8;
+.modal__close_icon-btn {
+  top: 0px;
+  right: -40px;
+  gap: 12px;
+  background: semi-transparent;
+  transition: visibility 0.3s, opacity 0.3s ease-in;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 627px) {

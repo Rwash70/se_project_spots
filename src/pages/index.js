@@ -67,6 +67,8 @@ const avatarInput = avatarModal.querySelector("#profile-avatar-input");
 // Delete form elements
 const deleteModal = document.querySelector("#delete-modal");
 const deleteForm = deleteModal.querySelector(".modal__form");
+const deleteModalCloseBtn = deleteModal.querySelector(".modal__close_icon-btn");
+const deleteModalCancelBtn = deleteForm.querySelector(".modal__cancel-btn");
 
 // Preview image popup elements
 const previewModal = document.querySelector("#preview-modal");
@@ -166,8 +168,6 @@ function handleEditFormSubmit(evt) {
     });
 }
 
-// TODO- implement loading text for all other form submission
-
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
   const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
@@ -193,9 +193,13 @@ function handleAvatarSubmit(evt) {
   api
     .editAvatarInfo(avatarInput.value)
     .then((data) => {
-      avatarFormElement.src = data.avatar;
+      profileAvatar.src = data.avatar;
+      closeModal(avatarModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      cardSaveBtn.textContent = "Save";
+    });
 }
 
 function handleDeleteSubmit(evt) {
@@ -224,10 +228,6 @@ function handleLike(evt, id, isLiked) {
       evt.target.classList.toggle("card__like-button_liked");
     })
     .catch(console.error);
-  // check whether card is currently liked or not
-  // call the handleLikeStatus method, passing it the appropriate argments
-  // handle the response (.then and .catch)
-  // In the .then, toggle the active class
 }
 
 profileEditButton.addEventListener("click", () => {
@@ -258,6 +258,16 @@ previewModalCloseEl.addEventListener("click", () => {
   closeModal(previewModal);
 });
 
+// add your logic for closing the confirmation modal when the x icon is clicked.
+deleteModalCloseBtn.addEventListener("click", () => {
+  console.log("is this firing");
+  closeModal(deleteModal);
+});
+// for your cancel button in your confirmation modal, add an event listener that will close the modal when the cancel button is clicked
+deleteModalCancelBtn.addEventListener("click", () => {
+  closeModal(deleteModal);
+});
+
 deleteForm.addEventListener("submit", handleDeleteSubmit);
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
@@ -266,6 +276,11 @@ cardFormElement.addEventListener("submit", handleCardFormSubmit);
 avatarModalBtn.addEventListener("click", () => {
   openModal(avatarModal);
 });
+
+avatarModalCloseBtn.addEventListener("click", () => {
+  closeModal(avatarModal);
+});
+
 avatarFormElement.addEventListener("submit", handleAvatarSubmit);
 
 enableValidation(validationConfig);
