@@ -179,14 +179,15 @@
         <button aria-label="Close modal" type="button" class="modal__close-btn">
           <img src="<%=require('./images/exit.svg')%>" alt="exit icon" />
         </button>
-        <h2 class="modal__title">Edit avatar</h2>
+        <h2 class="modal__title_form">Edit profile avatar</h2>
         <form class="modal__form" id="edit-avatar-form">
           <label for="profile-avatar-input" class="modal__label"
-            >Avatar
+            >Profile Picture
             <input
               id="profile-avatar-input"
               class="modal__input modal__input_type_error"
               name="avatar"
+              type="url"
               placeholder="avatar goes here"
               required
             />

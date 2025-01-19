@@ -48,6 +48,7 @@ const editModalNameInput = editModal.querySelector("#profile-name-input");
 const editModalDesriptionInput = editModal.querySelector(
   "#profile-description-input"
 );
+const editProfileSubmitButton = editModal.querySelector(".modal__submit-btn");
 
 // Card form elements
 const cardModal = document.querySelector("#add-card-modal");
@@ -151,7 +152,7 @@ function handleEscClose(evt) {
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
   const submitBtn = evt.submitter;
-  setButtonText(submitBtn, true);
+  setButtonText(editProfileSubmitButton);
   api
     .editUserInfo({
       name: editModalNameInput.value,
@@ -164,14 +165,14 @@ function handleEditFormSubmit(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      setButtonText(submitBtn, false);
+      setButtonText(editProfileSubmitButton);
     });
 }
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
   const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
-  cardSaveBtn.textContent = "Submitting...";
+  setButtonText(cardSaveBtn);
 
   api
     .addCard(inputValues)
@@ -184,12 +185,14 @@ function handleCardFormSubmit(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      cardSaveBtn.textContent = "Save";
+      setButtonText(cardSaveBtn);
     });
 }
 
 function handleAvatarSubmit(evt) {
   evt.preventDefault();
+  setButtonText(avatarSaveBtn);
+
   api
     .editAvatarInfo(avatarInput.value)
     .then((data) => {
@@ -198,7 +201,7 @@ function handleAvatarSubmit(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      cardSaveBtn.textContent = "Save";
+      setButtonText(avatarSaveBtn);
     });
 }
 
@@ -220,8 +223,6 @@ function handleDeleteCard(cardElement, cardID) {
 }
 
 function handleLike(evt, id, isLiked) {
-  // const isLiked = evt.target.classList.contains("card__like-button_liked");
-
   api
     .handleLikeStatus(id, isLiked)
     .then(() => {
@@ -258,12 +259,10 @@ previewModalCloseEl.addEventListener("click", () => {
   closeModal(previewModal);
 });
 
-// add your logic for closing the confirmation modal when the x icon is clicked.
 deleteModalCloseBtn.addEventListener("click", () => {
-  console.log("is this firing");
   closeModal(deleteModal);
 });
-// for your cancel button in your confirmation modal, add an event listener that will close the modal when the cancel button is clicked
+
 deleteModalCancelBtn.addEventListener("click", () => {
   closeModal(deleteModal);
 });
