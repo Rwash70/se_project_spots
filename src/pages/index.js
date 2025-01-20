@@ -60,14 +60,14 @@ const cardLinkInput = cardModal.querySelector("#add-card-link-input");
 
 // Avatar form elements
 const avatarModal = document.querySelector("#avatar-modal");
-const avatarFormElement = avatarModal.querySelector(".modal__form");
+const avatarFormElement = avatarModal.querySelector(".modal__avatar_form");
 const avatarSaveBtn = avatarModal.querySelector(".modal__submit-btn");
 const avatarModalCloseBtn = avatarModal.querySelector(".modal__close-btn");
 const avatarInput = avatarModal.querySelector("#profile-avatar-input");
 
 // Delete form elements
 const deleteModal = document.querySelector("#delete-modal");
-const deleteForm = deleteModal.querySelector(".modal__form");
+const deleteForm = deleteModal.querySelector(".modal__delete-form");
 const deleteModalCloseBtn = deleteModal.querySelector(".modal__close_icon-btn");
 const deleteModalCancelBtn = deleteForm.querySelector(".modal__cancel-btn");
 
@@ -151,8 +151,8 @@ function handleEscClose(evt) {
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
-  const submitBtn = evt.submitter;
-  setButtonText(editProfileSubmitButton);
+  const editProfilesubmitButton = evt.submitter;
+  setButtonText(editProfileSubmitButton, true);
   api
     .editUserInfo({
       name: editModalNameInput.value,
@@ -165,14 +165,19 @@ function handleEditFormSubmit(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      setButtonText(editProfileSubmitButton);
+      setTimeout(() => {
+        setButtonText(editProfileSubmitButton, false);
+      }, 300);
     });
 }
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
+
+  const cardSaveBtn = evt.target.querySelector(".modal__submit-btn");
+  setButtonText(cardSaveBtn, true);
+
   const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
-  setButtonText(cardSaveBtn);
 
   api
     .addCard(inputValues)
@@ -185,13 +190,17 @@ function handleCardFormSubmit(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      setButtonText(cardSaveBtn);
+      setTimeout(() => {
+        setButtonText(cardSaveBtn, false);
+      }, 300);
     });
 }
 
 function handleAvatarSubmit(evt) {
   evt.preventDefault();
-  setButtonText(avatarSaveBtn);
+
+  const avatarSaveBtn = evt.target.querySelector(".modal__submit-btn");
+  setButtonText(avatarSaveBtn, true);
 
   api
     .editAvatarInfo(avatarInput.value)
@@ -201,7 +210,9 @@ function handleAvatarSubmit(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      setButtonText(avatarSaveBtn);
+      setTimeout(() => {
+        setButtonText(avatarSaveBtn, false);
+      }, 300);
     });
 }
 
