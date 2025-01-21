@@ -101,17 +101,19 @@
   margin: 0;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 32px;
+  font-weight: 500;
   line-height: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
 }
 
 .modal__title_form {
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-size: 32px;
   font-weight: 500;
+  margin-top: auto;
 }
 
 .modal__form {
@@ -143,6 +145,8 @@
   gap: 8px;
   margin-bottom: 32px;
   color: rgba(33, 33, 33, 0.7);
+  font-size: 16px;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
 }
 
 .modal__input {
@@ -174,7 +178,6 @@
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-size: 16px;
   width: 156px;
-
   padding: 18px 0px;
   color: #fff;
   background-color: #212121;
@@ -206,7 +209,7 @@
 }
 
 .modal__submit-btn_disabled {
-  background-color: #212121;
+  background-color: #808080;
   cursor: not-allowed;
   opacity: 0.5;
 }
@@ -297,7 +300,7 @@
     font-size: 16px;
   }
 
-  .modal__avatar_form {
+  .modal__form_avatar {
     max-width: 300px;
     height: auto;
     top: 239px;

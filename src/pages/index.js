@@ -60,7 +60,7 @@ const cardLinkInput = cardModal.querySelector("#add-card-link-input");
 
 // Avatar form elements
 const avatarModal = document.querySelector("#avatar-modal");
-const avatarFormElement = avatarModal.querySelector(".modal__avatar_form");
+const avatarFormElement = avatarModal.querySelector(".modal__form");
 const avatarSaveBtn = avatarModal.querySelector(".modal__submit-btn");
 const avatarModalCloseBtn = avatarModal.querySelector(".modal__close-btn");
 const avatarInput = avatarModal.querySelector("#profile-avatar-input");
@@ -70,6 +70,7 @@ const deleteModal = document.querySelector("#delete-modal");
 const deleteForm = deleteModal.querySelector(".modal__delete-form");
 const deleteModalCloseBtn = deleteModal.querySelector(".modal__close_icon-btn");
 const deleteModalCancelBtn = deleteForm.querySelector(".modal__cancel-btn");
+const deleteBtn = deleteForm.querySelector(".modal__submit-btn");
 
 // Preview image popup elements
 const previewModal = document.querySelector("#preview-modal");
@@ -165,9 +166,7 @@ function handleEditFormSubmit(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      setTimeout(() => {
-        setButtonText(editProfileSubmitButton, false);
-      }, 300);
+      setButtonText(editProfileSubmitButton, false);
     });
 }
 
@@ -190,9 +189,7 @@ function handleCardFormSubmit(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      setTimeout(() => {
-        setButtonText(cardSaveBtn, false);
-      }, 300);
+      setButtonText(cardSaveBtn, false);
     });
 }
 
@@ -210,21 +207,25 @@ function handleAvatarSubmit(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      setTimeout(() => {
-        setButtonText(avatarSaveBtn, false);
-      }, 300);
+      setButtonText(avatarSaveBtn, false);
     });
 }
 
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
+
+  const deleteBtn = evt.submitter;
+  setButtonText(deleteBtn, true, "Delete", "Deleting...");
   api
     .deleteCard(selectedCardId)
     .then(() => {
       selectedCard.remove();
       closeModal(deleteModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      setButtonText(deleteBtn, false, "Delete", "Deleting...");
+    });
 }
 
 function handleDeleteCard(cardElement, cardID) {
