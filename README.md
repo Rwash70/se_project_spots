@@ -15,7 +15,7 @@ Spots is an innovative platform designed for sharing images across social platfo
 - **HTML5 & CSS3**
 - **Node.js** (for package management)
 - **Prettier** (code formatting)
-- \*\* Responsive design
+- Responsive design
 
 ## Deployment
 
