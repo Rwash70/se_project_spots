@@ -25,4 +25,4 @@ This webpage is deployed to GitHub Pages.
 
 . Project Video: https://drive.google.com/file/d/1icEmo4ZcWWHJc6R7ANF7BhB1wPsHwOox/view?usp=sharing
 
-[!Spot Screenshopt](src/images/Spot-image.png)
+[!Spot Screenshop](src/images/Spot-image.png)
